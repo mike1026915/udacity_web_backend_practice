@@ -3,16 +3,15 @@
 <H1>My Blog</H1>
 <hr>
 <Body>
-	<form method="post">
-		<LABEL> Subject:
-			<input name="subject" ></input>
-		</LABEL>	
+	{% for blog in blogs %}
+		<LABEL> <B>Subject:</B></LABEL>
+			<span><a href="/blog/{{ blog.key().id() }}">{{ blog.subject }}</a></span>
+			
 		<br>
-		<LABEL> Blog Content:</LABEL>
+		<LABEL><B> Content: </B></LABEL>
 		<br>
-			<textarea name="content" cols="150" rows="30"></textarea>
+			<div>{{ blog.content }}</div>
 		<hr>
-		<input type="submit"></input>
-	</form>
+	{% endfor %}
 </Body>
 </HTML>
